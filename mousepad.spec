@@ -4,7 +4,7 @@
 Summary:	A simple text editor for Xfce
 Name:		mousepad
 Version:	0.2.12
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 Group:		Editors
 URL:		http://www.xfce.org
@@ -12,7 +12,7 @@ Source:		%{name}-%{version}.tar.bz2
 BuildRequires:	gtk2-devel
 BuildRequires:	chrpath
 BuildRequires:	libxfcegui4-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 Requires(post):	desktop-file-utils
@@ -68,9 +68,8 @@ convert %{name}.png -geometry 32x32 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/
 convert %{name}.png -geometry 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{iconname} 
 
 
-desktop-file-install --vendor="" \
+desktop-file-install \
     --remove-category="Application" \
-    --add-category="X-MandrivaLinux-MoreApplications-Editors" \
     --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
  
