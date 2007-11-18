@@ -1,11 +1,10 @@
-%define iconname %{name}.png
 %define debug_package %{nil}
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.2.12
-Release:	%mkrel 5
-License:	GPL
+Version:	0.2.13
+Release:	%mkrel 1
+License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
 Source:		%{name}-%{version}.tar.bz2
@@ -46,7 +45,8 @@ following features:
 %setup -q
 
 %build
-%configure2_5x 
+%configure2_5x \
+	--disable-static
 
 %make
 
@@ -63,17 +63,16 @@ strip %{buildroot}%{_bindir}/%{name}
 %find_lang %{name} --with-gnome
 
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/{48x48,32x32,16x16}/apps
-convert %{name}.png -geometry 48x48 %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{iconname}
-convert %{name}.png -geometry 32x32 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{iconname} 
-convert %{name}.png -geometry 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{iconname} 
+convert %{name}.png -geometry 48x48 %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+convert %{name}.png -geometry 32x32 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+convert %{name}.png -geometry 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
 
 desktop-file-install \
     --remove-category="Application" \
     --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
- 
- 
+
 %post
 %{update_menus}
 %{update_desktop_database}
@@ -89,7 +88,7 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr (-,root,root)
-%doc AUTHORS COPYING ChangeLog INSTALL README 
+%doc AUTHORS ChangeLog NEWS README 
 %{_bindir}/* 
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/pixmaps/* 
