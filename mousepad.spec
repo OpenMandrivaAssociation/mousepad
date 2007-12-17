@@ -16,7 +16,6 @@ BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 Requires(post):	desktop-file-utils
 Requires(postun): desktop-file-utils
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Mousepad is a text editor for Xfce based on Leafpad. The initial reason for 
