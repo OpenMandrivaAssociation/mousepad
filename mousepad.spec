@@ -3,11 +3,12 @@
 Summary:	A simple text editor for Xfce
 Name:		mousepad
 Version:	0.2.13
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
 Source:		%{name}-%{version}.tar.bz2
+Patch0:		01_fix-recent-items-sort.patch
 BuildRequires:	gtk2-devel
 BuildRequires:	chrpath
 BuildRequires:	libxfcegui4-devel
@@ -43,6 +44,7 @@ following features:
 
 %prep 
 %setup -q
+%patch0 -p1
 
 %build
 %configure2_5x \
