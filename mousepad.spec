@@ -2,13 +2,13 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.2.13
-Release:	%mkrel 5
+Version:	0.2.14
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
 Source:		%{name}-%{version}.tar.bz2
-Patch0:		01_fix-recent-items-sort.patch
+Patch1:         02_fix-dialog.patch
 BuildRequires:	gtk2-devel
 BuildRequires:	chrpath
 BuildRequires:	libxfcegui4-devel
@@ -20,8 +20,8 @@ Requires(postun): desktop-file-utils
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-Mousepad is a text editor for Xfce based on Leafpad. The initial reason for 
-Mousepad was to provide printing support, which would have been difficult 
+Mousepad is a text editor for Xfce based on Leafpad. The initial reason for
+Mousepad was to provide printing support, which would have been difficult
 for Leafpad for various reasons.
 
 Although some features are under development, currently Mousepad has the
@@ -42,9 +42,9 @@ following features:
     * Drag and Drop
     * Printing
 
-%prep 
+%prep
 %setup -q
-%patch0 -p1
+%patch1 -p0
 
 %build
 %configure2_5x \
@@ -89,13 +89,13 @@ desktop-file-install \
 %clean_icon_cache hicolor
 %endif
 
-%clean 
+%clean
 rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr (-,root,root)
-%doc AUTHORS ChangeLog NEWS README 
-%{_bindir}/* 
+%doc AUTHORS ChangeLog NEWS README
+%{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/* 
+%{_datadir}/pixmaps/*
 %{_iconsdir}/hicolor/*/apps/*.png
