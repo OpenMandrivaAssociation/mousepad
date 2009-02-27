@@ -2,16 +2,16 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.2.14
+Version:	0.2.16
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
-Source:		%{name}-%{version}.tar.bz2
+Source:		http://mocha.xfce.org/archive/xfce-4.6.0/src/%{name}-%{version}.tar.bz2
 Patch1:         02_fix-dialog.patch
 BuildRequires:	gtk2-devel
 BuildRequires:	chrpath
-BuildRequires:	libxfcegui4-devel
+BuildRequires:	libxfcegui4-devel >= 4.6.0
 BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
