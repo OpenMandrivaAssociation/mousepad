@@ -8,7 +8,6 @@ License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
 Source:		http://mocha.xfce.org/archive/xfce-4.6.0/src/%{name}-%{version}.tar.bz2
-Patch1:         02_fix-dialog.patch
 BuildRequires:	gtk2-devel
 BuildRequires:	chrpath
 BuildRequires:	libxfcegui4-devel >= 4.6.0
@@ -44,7 +43,6 @@ following features:
 
 %prep
 %setup -q
-%patch1 -p0
 
 %build
 %configure2_5x \
