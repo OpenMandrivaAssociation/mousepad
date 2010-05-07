@@ -3,7 +3,7 @@
 Summary:	A simple text editor for Xfce
 Name:		mousepad
 Version:	0.2.16
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
