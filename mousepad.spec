@@ -3,7 +3,7 @@
 Summary:	A simple text editor for Xfce
 Name:		mousepad
 Version:	0.2.16
-Release:	%mkrel 7
+Release:	8
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
@@ -16,8 +16,7 @@ BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 Requires(post):	desktop-file-utils
-Requires(postun): desktop-file-utils
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+Requires(postun):	desktop-file-utils
 
 %description
 Mousepad is a text editor for Xfce based on Leafpad. The initial reason for
@@ -53,7 +52,6 @@ following features:
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 # fix rpath
@@ -62,7 +60,7 @@ chrpath -d %{buildroot}%{_bindir}/%{name}
 strip %{buildroot}%{_bindir}/%{name}
 
 
-%find_lang %{name} --with-gnome
+%find_lang %{name} --with-gnome %{name}.lang
 
 mkdir -p %{buildroot}%{_iconsdir}/hicolor/{48x48,32x32,16x16}/apps
 convert %{name}.png -geometry 48x48 %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
@@ -75,25 +73,7 @@ desktop-file-install \
     --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%{update_desktop_database}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%{clean_desktop_database}
-%clean_icon_cache hicolor
-%endif
-
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr (-,root,root)
 %doc AUTHORS ChangeLog NEWS README
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
