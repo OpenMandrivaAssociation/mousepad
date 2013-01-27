@@ -3,7 +3,7 @@
 Summary:	A simple text editor for Xfce
 Name:		mousepad
 Version:	0.2.16
-Release:	8
+Release:	9
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
@@ -117,7 +117,7 @@ desktop-file-install \
 - drop patch 1, not needed anymore
 - update to new version 0.2.16
 
-* Sat Jan 03 2009 Jérôme Soyer <saispo@mandriva.org> 0.2.14-1mdv2009.1
+* Sat Jan 03 2009 JÃ©rÃ´me Soyer <saispo@mandriva.org> 0.2.14-1mdv2009.1
 + Revision: 324027
 - New upstream release
 
@@ -172,7 +172,7 @@ desktop-file-install \
 + Revision: 112308
 - New release 0.2.12
 
-* Tue Dec 12 2006 Jérôme Soyer <saispo@mandriva.org> 0.2.10-1mdv2007.1
+* Tue Dec 12 2006 JÃ©rÃ´me Soyer <saispo@mandriva.org> 0.2.10-1mdv2007.1
 + Revision: 95212
 - New release 0.2.10
 - Import mousepad
@@ -181,7 +181,7 @@ desktop-file-install \
 - 0.2.6
 - xdg
 
-* Thu Apr 27 2006 Nicolas L�cureuil <neoclust@mandriva.org> 0.2.4-2mdk
+* Thu Apr 27 2006 Nicolas Lécureuil <neoclust@mandriva.org> 0.2.4-2mdk
 - Fix BuildRequires
 
 * Wed Apr 26 2006 Jerome Soyer <saispo@mandriva.org> 0.2.4-1mdk
