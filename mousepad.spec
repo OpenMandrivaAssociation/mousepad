@@ -2,19 +2,17 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.2.16
-Release:	9
+Version:	0.3.0
+Release:	1
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
-Source:		http://mocha.xfce.org/archive/xfce-4.6.0/src/%{name}-%{version}.tar.bz2
-Patch1:		mousepad-0.2.16-find_gtk2.18.patch
+Source:		http://archive.xfce.org/src/apps/mousepad/0.3/%{name}-%{version}.tar.bz2
 BuildRequires:	gtk2-devel
-BuildRequires:	chrpath
-BuildRequires:	libxfcegui4-devel >= 4.6.0
 BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
+Buildrequires:	pkgconfig(dbus-glib-1)
 Requires(post):	desktop-file-utils
 Requires(postun):	desktop-file-utils
 
@@ -43,30 +41,18 @@ following features:
 
 %prep
 %setup -q
-%patch1 -p1
 
 %build
 %configure2_5x \
-	--disable-static
+	--disable-static \
+	--enable-dbus
 
 %make
 
 %install
 %makeinstall_std
 
-# fix rpath
-chrpath -d %{buildroot}%{_bindir}/%{name}
-# strip binary
-strip %{buildroot}%{_bindir}/%{name}
-
-
-%find_lang %{name} --with-gnome %{name}.lang
-
-mkdir -p %{buildroot}%{_iconsdir}/hicolor/{48x48,32x32,16x16}/apps
-convert %{name}.png -geometry 48x48 %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
-convert %{name}.png -geometry 32x32 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
-convert %{name}.png -geometry 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
-
+%find_lang %{name}
 
 desktop-file-install \
     --remove-category="Application" \
