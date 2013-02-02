@@ -12,7 +12,8 @@ BuildRequires:	gtk2-devel
 BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
-Buildrequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	intltool
 Requires(post):	desktop-file-utils
 Requires(postun):	desktop-file-utils
 
