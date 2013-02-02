@@ -65,8 +65,7 @@ desktop-file-install \
 %doc AUTHORS ChangeLog NEWS README
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
-%{_datadir}/pixmaps/*
-%{_iconsdir}/hicolor/*/apps/*.png
+
 
 
 %changelog
