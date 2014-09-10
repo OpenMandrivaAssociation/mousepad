@@ -3,11 +3,11 @@
 Summary:	A simple text editor for Xfce
 Name:		mousepad
 Version:	0.3.0
-Release:	6
+Release:	4
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
-Source:		http://archive.xfce.org/src/apps/mousepad/0.3/%{name}-%{version}.tar.bz2
+Source0:	http://archive.xfce.org/src/apps/mousepad/0.3/%{name}-%{version}.tar.bz2
 BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
