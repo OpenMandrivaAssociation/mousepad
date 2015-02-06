@@ -3,7 +3,7 @@
 Summary:	A simple text editor for Xfce
 Name:		mousepad
 Version:	0.3.0
-Release:	8
+Release:	9
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
