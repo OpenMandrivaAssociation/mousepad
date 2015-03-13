@@ -2,8 +2,8 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.3.0
-Release:	9
+Version:	0.4.0
+Release:	1
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
@@ -45,7 +45,7 @@ following features:
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--enable-dbus
 
