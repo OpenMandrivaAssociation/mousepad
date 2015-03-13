@@ -65,4 +65,5 @@ desktop-file-install \
 %doc AUTHORS ChangeLog NEWS README
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
 
