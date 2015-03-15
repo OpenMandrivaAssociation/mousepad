@@ -2,8 +2,8 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.3.0
-Release:	7
+Version:	0.4.0
+Release:	0.1
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
@@ -65,4 +65,5 @@ desktop-file-install \
 %doc AUTHORS ChangeLog NEWS README
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
 
