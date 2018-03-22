@@ -1,19 +1,21 @@
 %define debug_package %{nil}
+%define url_ver %(echo %{version} | cut -d. -f 1,2)
+%define _disable_rebuild_configure 1
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
 Version:	0.4.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
-Source0:	http://archive.xfce.org/src/apps/mousepad/0.3/%{name}-%{version}.tar.bz2
-BuildRequires:	pkgconfig(gtk+-2.0)
+Source0:	http://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version}.tar.bz2
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(dbus-glib-1)
-BuildRequires:	pkgconfig(gtksourceview-2.0)
+BuildRequires:	pkgconfig(gtksourceview-3.0)
 BuildRequires:	intltool
 Requires(post):	desktop-file-utils
 Requires(postun):	desktop-file-utils
