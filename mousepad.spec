@@ -71,4 +71,6 @@ desktop-file-install \
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
+%{_datadir}/polkit-1/actions/org.xfce.mousepad.policy
+
 
