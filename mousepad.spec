@@ -4,20 +4,21 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.4.2
+Version:	0.5.1
 Release:	1
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version}.tar.bz2
+Patch0:		0001-Port-to-gtksourceview-4.patch
+
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	pkgconfig(libxfconf-0)
-BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(dbus-glib-1)
-BuildRequires:	pkgconfig(gtksourceview-3.0)
+BuildRequires:	pkgconfig(gtksourceview-4)
 BuildRequires:	intltool
 Requires(post):	desktop-file-utils
 Requires(postun):	desktop-file-utils
@@ -52,7 +53,8 @@ following features:
 %configure \
 	--disable-static \
 	--enable-dbus \
-	--enable-gtk3=yes
+	--enable-gtk3=yes \
+	--enable-keyfile-settings
 
 %make_build
 
