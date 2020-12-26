@@ -1,0 +1,63 @@
+From db30ac526cb671263ce470d6ba19f00f8c5a1678 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jani=20V=C3=A4limaa?= <wally@mageia.org>
+Date: Sat, 21 Nov 2020 15:54:09 +0200
+Subject: [PATCH] Port to gtksourceview 4
+
+---
+ configure.ac                 | 3 ++-
+ mousepad/mousepad-document.c | 8 +++++++-
+ mousepad/mousepad-util.c     | 6 +++++-
+ 3 files changed, 14 insertions(+), 3 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 023c1d4..69eedad 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -96,7 +96,8 @@ XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.52.0])
+ XDT_CHECK_PACKAGE([GTHREAD], [gthread-2.0], [2.52.0])
+ XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.12.0])
+ XDT_CHECK_PACKAGE([GTK], [gtk+-3.0], [3.22.0])
+-XDT_CHECK_PACKAGE([GTKSOURCEVIEW], [gtksourceview-3.0], [3.24.0])
++XDT_CHECK_PACKAGE([GTKSOURCEVIEW], [gtksourceview-4], [3.92.0], [AC_DEFINE([HAVE_GTKSOURCEVIEW4], [1], [Define if gtksourceview-4 is found])],
++  [XDT_CHECK_PACKAGE([GTKSOURCEVIEW], [gtksourceview-3.0], [3.24.0])])
+ 
+ dnl ************************************
+ dnl *** Enable support for GSettings ***
+diff --git a/mousepad/mousepad-document.c b/mousepad/mousepad-document.c
+index f3252cf..88e7ca3 100644
+--- a/mousepad/mousepad-document.c
++++ b/mousepad/mousepad-document.c
+@@ -23,7 +23,13 @@
+ #include <mousepad/mousepad-view.h>
+ #include <mousepad/mousepad-window.h>
+ 
+-
++#ifdef HAVE_GTKSOURCEVIEW4
++  #define gtk_source_search_context_backward2 gtk_source_search_context_backward
++  #define gtk_source_search_context_backward_finish2 gtk_source_search_context_backward_finish
++  #define gtk_source_search_context_forward2 gtk_source_search_context_forward
++  #define gtk_source_search_context_forward_finish2 gtk_source_search_context_forward_finish
++  #define gtk_source_search_context_replace2 gtk_source_search_context_replace
++#endif
+ 
+ static void      mousepad_document_finalize                (GObject                *object);
+ static void      mousepad_document_notify_cursor_position  (MousepadDocument       *document);
+diff --git a/mousepad/mousepad-util.c b/mousepad/mousepad-util.c
+index 0ad7609..67aed87 100644
+--- a/mousepad/mousepad-util.c
++++ b/mousepad/mousepad-util.c
+@@ -23,7 +23,11 @@
+ #include <math.h>
+ #endif
+ 
+-
++#ifdef HAVE_GTKSOURCEVIEW4
++  #define gtk_source_search_context_backward_finish2 gtk_source_search_context_backward_finish
++  #define gtk_source_search_context_forward_finish2 gtk_source_search_context_forward_finish
++  #define gtk_source_search_context_replace2 gtk_source_search_context_replace
++#endif
+ 
+ #define DEFAULT_FONT "Monospace 10"
+ #define FONT_FAMILY  "font-family"
+-- 
+2.29.2
