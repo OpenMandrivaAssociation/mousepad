@@ -10,7 +10,7 @@ License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version}.tar.bz2
-Patch0:		0001-Port-to-gtksourceview-4.patch
+#Patch0:		0001-Port-to-gtksourceview-4.patch
 
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	xfce4-dev-tools
@@ -18,7 +18,7 @@ BuildRequires:	pkgconfig(libxfconf-0)
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(dbus-glib-1)
-BuildRequires:	pkgconfig(gtksourceview-4)
+BuildRequires:	pkgconfig(gtksourceview-3.0)
 BuildRequires:	intltool
 Requires(post):	desktop-file-utils
 Requires(postun):	desktop-file-utils
