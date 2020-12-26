@@ -4,16 +4,17 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.4.2
+Version:	0.5.1
 Release:	1
 License:	GPLv2+
 Group:		Editors
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version}.tar.bz2
+#Patch0:		0001-Port-to-gtksourceview-4.patch
+
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	pkgconfig(libxfconf-0)
-BuildRequires:	imagemagick
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(dbus-glib-1)
@@ -47,12 +48,14 @@ following features:
 
 %prep
 %setup -q
+%autopatch -p1
 
 %build
 %configure \
 	--disable-static \
 	--enable-dbus \
-	--enable-gtk3=yes
+	--enable-gtk3=yes \
+	--enable-keyfile-settings
 
 %make_build
 
@@ -67,10 +70,11 @@ desktop-file-install \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog NEWS README*
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
 %{_datadir}/polkit-1/actions/org.xfce.mousepad.policy
-
-
+%{_datadir}/metainfo/mousepad.appdata.xml
+%{_iconsdir}/hicolor/*x*/apps/org.xfce.mousepad.png
+%{_iconsdir}/hicolor/scalable/apps/org.xfce.mousepad.svg
