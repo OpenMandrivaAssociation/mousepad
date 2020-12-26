@@ -48,6 +48,7 @@ following features:
 
 %prep
 %setup -q
+%autopatch -p1
 
 %build
 %configure \
