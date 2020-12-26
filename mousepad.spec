@@ -70,7 +70,7 @@ desktop-file-install \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS ChangeLog NEWS README*
 %{_bindir}/*
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
