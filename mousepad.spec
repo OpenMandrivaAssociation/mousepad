@@ -65,7 +65,6 @@ following features:
 %find_lang %{name}
 
 desktop-file-install \
-    --remove-category="Application" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
