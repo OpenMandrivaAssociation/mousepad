@@ -1,4 +1,4 @@
-%define debug_package %{nil}
+#define debug_package %{nil}
 %define url_ver %(echo %{version} | cut -d. -f 1,2)
 %define _disable_rebuild_configure 1
 
@@ -70,7 +70,9 @@ following features:
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog NEWS README*
 %{_bindir}/*
+%{_libdir}/libmousepad.so*
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/applications/mousepad-settings.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
 %{_datadir}/polkit-1/actions/org.xfce.mousepad.policy
 %{_datadir}/metainfo/mousepad.appdata.xml
