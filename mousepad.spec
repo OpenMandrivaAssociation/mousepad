@@ -64,8 +64,8 @@ following features:
 
 %find_lang %{name}
 
-desktop-file-install \
-    --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+#desktop-file-install \
+#    --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog NEWS README*
