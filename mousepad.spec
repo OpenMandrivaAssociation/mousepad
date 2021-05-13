@@ -66,7 +66,6 @@ following features:
 
 desktop-file-install \
     --remove-category="Application" \
-    --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
