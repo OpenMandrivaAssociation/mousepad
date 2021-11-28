@@ -4,7 +4,7 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.5.7
+Version:	0.5.8
 Release:	1
 License:	GPLv2+
 Group:		Editors
@@ -20,8 +20,6 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gtksourceview-3.0)
 BuildRequires:	intltool
-Requires(post):	desktop-file-utils
-Requires(postun):	desktop-file-utils
 
 %description
 Mousepad is a text editor for Xfce based on Leafpad. The initial reason for
@@ -63,9 +61,6 @@ following features:
 %make_install
 
 %find_lang %{name}
-
-#desktop-file-install \
-#    --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog NEWS README*
