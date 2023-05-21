@@ -69,7 +69,7 @@ following features:
 %{_datadir}/applications/org.xfce.mousepad.desktop
 %{_datadir}/applications/org.xfce.mousepad-settings.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
-%{_datadir}/polkit-1/actions/org.xfce.mousepad.policy
+#{_datadir}/polkit-1/actions/org.xfce.mousepad.policy
 %{_datadir}/metainfo/org.xfce.mousepad.appdata.xml
 %{_iconsdir}/hicolor/*x*/apps/org.xfce.mousepad.png
 %{_iconsdir}/hicolor/scalable/apps/org.xfce.mousepad.svg
