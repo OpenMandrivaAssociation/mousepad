@@ -8,7 +8,7 @@ Version:	0.6.2
 Release:	1
 License:	GPLv2+
 Group:		Editors
-URL:		http://www.xfce.org
+URL:		https://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version}.tar.bz2
 #Patch0:		0001-Port-to-gtksourceview-4.patch
 
