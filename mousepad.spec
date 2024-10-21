@@ -4,12 +4,12 @@
 
 Summary:	A simple text editor for Xfce
 Name:		mousepad
-Version:	0.6.2
+Version:	0.6.3
 Release:	1
 License:	GPLv2+
 Group:		Editors
 URL:		https://www.xfce.org
-Source0:	http://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version}.tar.bz2
+Source0:	https://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version}.tar.bz2
 #Patch0:		0001-Port-to-gtksourceview-4.patch
 
 BuildRequires:	pkgconfig(gtk+-3.0)
