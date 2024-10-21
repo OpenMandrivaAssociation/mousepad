@@ -19,6 +19,7 @@ BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gtksourceview-3.0)
+BuildRequires:	pkgconfig(gspell-1)
 BuildRequires:	intltool
 
 %description
