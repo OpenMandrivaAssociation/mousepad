@@ -15,6 +15,7 @@ Source0:	https://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	pkgconfig(libxfconf-0)
+BuildRequires:	pkgconfig(libxfce4ui-2)
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(dbus-glib-1)
