@@ -68,6 +68,10 @@ following features:
 %doc AUTHORS ChangeLog NEWS README*
 %{_bindir}/*
 %{_libdir}/libmousepad.so*
+%{_libdir}/mousepad/plugins/libmousepad-plugin-gspell.so
+%{_libdir}/mousepad/plugins/libmousepad-plugin-shortcuts.so
+%{_datadir}/glib-2.0/schemas/org.xfce.mousepad.plugins.gspell.gschema.xml
+%{_datadir}/polkit-1/actions/org.xfce.mousepad.policy
 %{_datadir}/applications/org.xfce.mousepad.desktop
 %{_datadir}/applications/org.xfce.mousepad-settings.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
