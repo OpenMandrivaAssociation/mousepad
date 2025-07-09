@@ -63,7 +63,7 @@ following features:
 %find_lang %{name}
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog NEWS README*
+%doc AUTHORS NEWS README*
 %{_bindir}/*
 %{_libdir}/libmousepad.so*
 %{_libdir}/mousepad/plugins/libmousepad-plugin-gspell.so
