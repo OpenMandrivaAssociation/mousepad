@@ -12,6 +12,7 @@ URL:		https://www.xfce.org
 Source0:	https://archive.xfce.org/src/apps/mousepad/%{url_ver}/%{name}-%{version}.tar.bz2
 #Patch0:		0001-Port-to-gtksourceview-4.patch
 
+BuildRequires:	meson
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	pkgconfig(libxfconf-0)
@@ -19,7 +20,7 @@ BuildRequires:	pkgconfig(libxfce4ui-2)
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(dbus-glib-1)
-BuildRequires:	pkgconfig(gtksourceview-3.0)
+BuildRequires:	pkgconfig(gtksourceview-4)
 BuildRequires:	pkgconfig(gspell-1)
 BuildRequires:	intltool
 
@@ -47,20 +48,17 @@ following features:
     * Printing
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
-%configure \
-	--disable-static \
-	--enable-dbus \
-	--enable-gtk3=yes \
-	--enable-keyfile-settings
+%meson \
+	-Dgtksourceview4=enabled \
+ 	-Dpolkit=enabled
 
-%make_build
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 %find_lang %{name}
 
